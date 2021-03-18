@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<video src="media/video.mp4" id="video" width="400px" controls>
+		<p>No se puede reproducir</p>
+	</video>
+	<br>
+	<audio src="media/audio.mp3" id="audio" controls>
+		<p>No se puede reproducir</p>
+	</audio>
+	<button id="play">Reproducir</button>
+	<button id="pause">Pausar</button>
+	<input type="range" value="1" min="0" max="1" step="0.1" id="volumen">
+	<script>
+		var video = document.getElementById('video'),
+			btnPause = document.getElementById('pause'),
+			btnPlay = document.getElementById('play'),
+			volumen = document.getElementById('volumen');
+
+		btnPlay.addEventListener('click',function (){
+			video.play();
+			document.body.style.background = '#000';
+		});
+
+		btnPause.addEventListener('click',function (){
+			video.pause();
+			document.body.style.background = '#fff';
+		});
+
+		volumen.addEventListener('change',function(){
+			video.volume = volumen.value;
+		});
+	</script>
+</body>
+</html>
